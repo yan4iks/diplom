@@ -1,0 +1,15 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+<div class="pagination">
+    {% if page_obj_planets.has_previous %}
+        <a href="?page-planet={{ page_obj_planets.previous_page_number }}">⟨ Предыдущая</a>
+    {% endif %}
+
+    <span>Страница планет: {{ page_obj_planets.number }} из {{ page_obj_planets.paginator.num_pages }}</span>
+
+    {% if page_obj_planets.has_next %}
+        <a href="?page-planet={{ page_obj_planets.next_page_number }}">Следующая ⟩</a>
+    {% endif %}
+</div>

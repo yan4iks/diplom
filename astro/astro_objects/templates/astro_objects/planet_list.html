@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+    <header class="header">
+        <h1>{{ title }}</h1>
+    </header>
+
+    {% include 'astro_objects/includes/planet-grid.html' %}
+    {% include 'astro_objects/includes/pagination.html' %}
+{% endblock %}

@@ -1,0 +1,24 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+<main class="astro-grid">
+    {% for star in page_obj_stars %}
+        <a href="{{ star.get_absolute_url }}">
+            <article class="star-card">
+                <div class="star-card-photo">
+                    {% if star.photo %}
+                        <img src="{{ star.photo.url }}" alt="Фото звезды {{ star.name }}">
+                    {% endif %}
+                </div>
+                <div class="star-card-ontent">
+                    <h2 class="star-card-name">{{ star.name }}</h2>
+                    <p class="star-card-info">
+                        {{ star.get_planetary_system }}
+                    </p>
+                </div>
+            </article>
+        </a>
+    {% empty %}
+        <p class="no-star">В данный момент звёзд на сайте нет.</p>
+    {% endfor %}
+</main>

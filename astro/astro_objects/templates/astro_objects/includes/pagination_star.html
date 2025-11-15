@@ -1,0 +1,15 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+<div class="pagination">
+    {% if page_obj_stars.has_previous %}
+        <a href="?page-star={{ page_obj_stars.previous_page_number }}">⟨ Предыдущая</a>
+    {% endif %}
+
+    <span>Страница звезд: {{ page_obj_stars.number }} из {{ page_obj_stars.paginator.num_pages }}</span>
+
+    {% if page_obj_stars.has_next %}
+        <a href="?page-star={{ page_obj_stars.next_page_number }}">Следующая ⟩</a>
+    {% endif %}
+</div>

@@ -1,0 +1,24 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+<main class="astro-grid">
+    {% for planet in page_obj_planets %}
+        <a href="{{ planet.get_absolute_url }}">
+            <article class="planet-card">
+                <div class="planet-card-photo">
+                    {% if planet.photo %}
+                        <img src="{{ planet.photo.url }}" alt="Фото планеты {{ planet.name }}">
+                    {% endif %}
+                </div>
+                <div class="planet-card-content">
+                    <h2 class="planetr-card-name">{{ planet.name }}</h2>
+                    <p class="planet-card-info">
+                        {{ planet.planetary_system }}
+                    </p>
+                </div>
+            </article>
+        </a>
+    {% empty %}
+        <p class="no-planet">В данный момент планет на сайте нет.</p>
+    {% endfor %}
+</main>

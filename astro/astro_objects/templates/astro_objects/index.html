@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Astro{% endblock %}
+
+{% block content %}
+    <header class="header">
+        <h1>Astro</h1>
+    </header>
+
+    <!-- Блок для звёзд -->
+    <section class="stars-section">
+        <h2>Звезды</h2>
+        {% include 'astro_objects/includes/star-grid.html' %}
+
+        <!-- Навигация по страницам звёзд -->
+        {% if page_obj_stars.has_other_pages %}
+            {% include 'astro_objects/includes/pagination_star.html' with page_obj=page_obj_stars param_name="page-star" %}
+        {% endif %}
+    </section>
+
+    <!-- Блок для планет -->
+    <section class="planets-section">
+        <h2>Планеты</h2>
+        {% include 'astro_objects/includes/planet-grid.html' %}
+
+        <!-- Навигация по страницам планет -->
+        {% if page_obj_planets.has_other_pages %}
+            {% include 'astro_objects/includes/pagination_planet.html' with page_obj=page_obj_planets param_name="page-planet" %}
+        {% endif %}
+    </section>
+{% endblock %}

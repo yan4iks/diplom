@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+
+
+<div class="container">
+    <div class="star-card">
+        <div class="star-photo">
+            {% if star.photo %}
+                <img src="{{ star.photo.url }}" alt="Фото звезды {{ star.name }}">
+            {% else %}
+                {# <img src="#" alt="Фото отсутствует"> #}
+            {% endif %}
+        </div>
+
+        <div class="star-detail-info">
+            <h1>{{ star.name }}</h1>
+            <p>{{ star.description }}</p>
+
+            <table class="details-table">
+                <tr><td>Планетарная система</td><td>{{ star.get_planetary_system }}</td></tr>
+                <tr>
+                    <td>Статус</td><td>{{ star.status }}</td>
+                </tr>
+                <tr><td>Возраст</td><td>{{ star.aged }} миллиардов</td></tr>
+            </table>
+                
+        </div>
+    </div>
+</div>
+
+<header class="header">
+       <h2>Объекты в той же системе:</h2>
+</header>
+
+<div class="mini-cards">
+    <div class="mini-card-p">
+        {% for planet in planets %}
+            <div class="mini-planet">
+                <img src="{{ planet.photo.url }}" alt="Фото планеты {{ planet.name }}">
+                <p>{{ planet.name }}</p>
+            </div>
+        {% empty %}
+            <p>Нет планет в данной системе.</p>
+        {% endfor %}
+    </div>
+
+    <div class="mini-card-s">
+        {% for star in stars %}
+            <div class="mini-star">
+                <img src="{{ star.photo.url }}" alt="Фото звезды {{ star.name }}">
+                <p>{{ star.name }}</p>
+            </div>
+        {% empty %}
+            <p>Нет звёзд в данной системе.</p>
+        {% endfor %}
+    </div>
+</div>
+   <a href="{% url 'home' %}" class="back-link">← Вернуться обратно</a>
+
+   {% endblock %}
+
