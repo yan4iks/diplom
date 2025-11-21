@@ -8,32 +8,37 @@
 {% block content %}
 
 
-<div class="container">
-    <div class="planet-card">
-        <div class="planet-photo">
-            {% if planet.photo %}
-                <img src="{{ planet.photo.url }}" alt="Фото планеты {{ planet.name }}">
-            {% else %}
-                {# <img src="#" alt="Фото отсутствует"> #}
-            {% endif %}
-        </div>
 
-        <div class="planet-detail-info">
-            <h1>{{ planet.name }}</h1>
-            <p>{{ planet.description }}</p>
+<div class="planet-card-d">
+    <div class="planet-photo">
+        {% if planet.photo %}
+            <img src="{{ planet.photo.url }}" alt="Фото планеты {{ planet.name }}">
+        {% else %}
+            {# <img src="#" alt="Фото отсутствует"> #}
+        {% endif %}
+    </div>
 
+    <h1>{{ planet.name }}</h1>
+    <div class="planet-detail-info">
+        <div class="main-detail">
             <table class="details-table">
                 <tr><td>Планетарная система</td><td>{{ planet.planetary_system }}</td></tr>
                 <tr><td>Возраст</td><td>{{ planet.aged }} миллиардов</td></tr>
             </table>
-                
         </div>
+        
+        <div class="description">
+            <p>{{ planet.description }}</p>
+        </div>
+        
+               
     </div>
 </div>
 
-<header class="header">
+
+<div class="obj">
        <h2>Объекты в той же системе:</h2>
-</header>
+</div>
 
 <div class="mini-cards">
     <div class="mini-card-p">
@@ -47,6 +52,8 @@
         {% endfor %}
     </div>
 
+    <div class="zero"></div>
+
     <div class="mini-card-s">
         {% for star in stars %}
             <div class="mini-star">
@@ -58,9 +65,9 @@
         {% endfor %}
     </div>
 </div>
-
-
-<a href="{% url 'home' %}" class="back-link">← Вернуться обратно</a>
+<div class="zero"></div>
+<a href="{% url 'home' %}" class="back-link" style="border: solid rgb(255, 255, 255) 1px; padding: 5px; border-radius: 5px;">← Вернуться обратно</a>
+<div class="zero"></div>
 
 {% endblock %}
 

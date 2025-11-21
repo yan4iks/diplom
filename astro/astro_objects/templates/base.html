@@ -6,11 +6,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <title>{% block title %}Astro{% endblock %}</title>
 </head>
 <body>
+    <header class="header">
+        <ul id="navbar">
+            <li><a href="{% url 'home'%}" style="font-size: 40px;">Astro</a></li>
+            <li><a href="#about" style="font-size: 25px;">о нас</a></li>
+            <li><a href="#stars-section" style="font-size: 25px;">звёзды</a></li>
+            <li><a href="#planets-section" style="font-size: 25px;">планеты</a></li>
+        </ul>
+    </header>
+
+    <div class="zero"></div>
+    <div class="zero"></div>
+
+
     <div class="container">
+        <div id="bg-layer"> <img src="'/static/css/image/фон.jpg'" alt=""></div>
         {% block content %}
         {% endblock %}
     </div>

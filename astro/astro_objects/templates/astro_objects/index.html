@@ -4,12 +4,24 @@
 {% block title %}Astro{% endblock %}
 
 {% block content %}
-    <header class="header">
-        <h1>Astro</h1>
-    </header>
+
+    <div class="zero"></div>
+    <div class="about" id="about">
+        <div class="about-txt">
+            <h1>ASTRO</h1>
+            <p>Наш сайт посвящён увлекательному миру звёзд и планет, открывающему тайны Вселенной.
+                <br> Вы найдёте здесь всю необходимую информацию о ярких звёздах, газовых гигантах, <br>
+                ледяных карликах и экзопланетах, вращающихся вокруг далёких светил.</p>
+        </div>
+        <div class="about-img">
+            <img src="\static\css\image\image 1 (1).png" alt="">
+        </div>
+    </div>
+
+    <div class="zero"></div>
 
     <!-- Блок для звёзд -->
-    <section class="stars-section">
+    <section class="stars-section" id="stars-section">
         <h2>Звезды</h2>
         {% include 'astro_objects/includes/star-grid.html' %}
 
@@ -20,7 +32,7 @@
     </section>
 
     <!-- Блок для планет -->
-    <section class="planets-section">
+    <section class="planets-section" id="planets-section">
         <h2>Планеты</h2>
         {% include 'astro_objects/includes/planet-grid.html' %}
 
