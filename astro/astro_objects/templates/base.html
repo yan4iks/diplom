@@ -16,9 +16,10 @@
     <header class="header">
         <ul id="navbar">
             <li><a href="{% url 'home'%}" style="font-size: 40px;">Astro</a></li>
-            <li><a href="#about" style="font-size: 25px;">о нас</a></li>
-            <li><a href="#stars-section" style="font-size: 25px;">звёзды</a></li>
-            <li><a href="#planets-section" style="font-size: 25px;">планеты</a></li>
+            <li><a href="{% url 'home' %}#about">о нас</a></li>
+            <li><a href="{% url 'home' %}#stars-section">звёзды</a></li>
+            <li><a href="{% url 'home' %}#planets-section">планеты</a></li>
+
         </ul>
     </header>
 
@@ -31,5 +32,7 @@
         {% block content %}
         {% endblock %}
     </div>
+    
+
 </body>
 </html>

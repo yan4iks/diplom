@@ -45,10 +45,12 @@
 <div class="mini-cards">
     <div class="mini-card-p">
         {% for planet in planets %}
-            <div class="mini-planet">
-                <img src="{{ planet.photo.url }}" alt="Фото планеты {{ planet.name }}">
-                <p>{{ planet.name }}</p>
-            </div>
+             <a href="{{ planet.get_absolute_url }}">
+                <div class="mini-planet">
+                    <img src="{{ planet.photo.url }}" alt="Фото планеты {{ planet.name }}">
+                    <p>{{ planet.name }}</p>
+                </div>
+            </a>
         {% empty %}
             <p>Нет планет в данной системе.</p>
         {% endfor %}
@@ -58,10 +60,12 @@
 
     <div class="mini-card-s">
         {% for star in stars %}
-            <div class="mini-star">
-                <img src="{{ star.photo.url }}" alt="Фото звезды {{ star.name }}">
-                <p>{{ star.name }}</p>
-            </div>
+            <a href="{{ star.get_absolute_url }}">
+                <div class="mini-star">
+                    <img src="{{ star.photo.url }}" alt="Фото звезды {{ star.name }}">
+                    <p>{{ star.name }}</p>
+                </div>
+            </a>
         {% empty %}
             <p>Нет звёзд в данной системе.</p>
         {% endfor %}
